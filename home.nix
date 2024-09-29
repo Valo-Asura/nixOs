@@ -19,6 +19,7 @@
 
 
   home.sessionVariables = {
+    SSH_ASKPASS = "${pkgs.lxqt.lxqt-openssh-askpass}/bin/lxqt-openssh-askpass";
     # EDITOR = "emacs";
   };
 

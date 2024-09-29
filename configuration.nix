@@ -94,6 +94,7 @@
   # System-wide packages and tools
   environment.systemPackages = with pkgs; [
     # Essential tools
+    lxqt.lxqt-openssh-askpass #for git 
     lf
     bc
     waybar
@@ -135,6 +136,13 @@
       mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
     }))
   ];
+
+  #for git 
+  programs.ssh = {
+    enableAskPassword = true;
+    askPassword = "${pkgs.lxqt.lxqt-openssh-askpass}/bin/lxqt-openssh-askpass";
+  };
+  programs.seahorse.enable = true;
 
   # Hyprland-specific configurations
   programs.hyprland = {
